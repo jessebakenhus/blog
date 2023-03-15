@@ -2,8 +2,6 @@
   <h1>my personal blog 🖋️</h1>
 </div>
 
-my personal **blog** powered by [Next.js](https://nextjs.org/).
-
 <table>
   <tr>
     <td width="33%">
@@ -18,7 +16,7 @@ my personal **blog** powered by [Next.js](https://nextjs.org/).
   </tr>
 </table>
 
-## Try it!
+## Usage
 
 Download the repository and run the following commands
 
