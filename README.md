@@ -1,38 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <h1>my personal blog 🖋️</h1>
+</div>
 
-## Getting Started
+my personal **blog** powered by [Next.js](https://nextjs.org/).
 
-First, run the development server:
 
-```bash
+
+<a href='https://ko-fi.com/L3L0JIL8U' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="./imgs/home.png" />
+    </td>
+    <td width="33%">
+      <img src="./imgs/blog.png" />
+    </td>
+    <td width="33%">
+      <img src="./imgs/blog-post.png" />
+    </td>
+  </tr>
+</table>
+
+## Try it!
+
+Download the repository and run the following commands
+
+### Run development server
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build for production
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run build
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Project structure
+* 📁 `src`: Contains the actual Next.js code from the blog site
+  * 📄 `src/content`: Contains the entire blog content
+  * 📄 `src/components`: Contains all reusable components
+  * 📄 `src/pages`: All pages of the site
+  * 📄 `src/styles`: Simply global.scss with tailwind imports
+  * 📄 `src/types`: All ui models
+  * 📄 `src/util`: Utilities for reading and parsing markdown content
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Features
+* Writing blog via markdown 📝
+* RSS integration 🎞️
