@@ -36,7 +36,9 @@ export default function Blogs(props: BlogsProps) {
                     </nav>
                     <div className="flex items-center gap-2">
                         <h1 className="font-bold text-4xl">Blogs</h1>
-                        <Rss />
+                        <Link href="/rss/feed.xml">
+                            <Rss />
+                        </Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-4 py-3">
