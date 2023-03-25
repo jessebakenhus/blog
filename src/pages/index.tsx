@@ -11,13 +11,11 @@ export default function Home() {
         <title>Home</title>
         <link rel="icon" href="/avatar.jpg" />
       </Head>
-      <div className="flex flex-col flex-grow justify-center items-center gap-6">
-        <Image className="rounded-full" src="/avatar.jpg" alt="Avatar" width={102} height={102} />
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="text-4xl font-bold" >jesse</h1>
-          <p className="text-base">Keep it simple :)</p>
+      <div className="flex flex-col flex-grow justify-center items-center gap-6 max-w-xs">
+        <div className="flex flex-col">
+          <p className="text-base">jesse</p>
+          <h1 className="text-4xl font-medium">make the dreams into reality</h1>
         </div>
-        <Button text="more about me" href="/about" />
       </div>
     </>
   )
