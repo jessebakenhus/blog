@@ -1,11 +1,11 @@
 import { Feed } from "feed";
 import fs from "fs";
 import md from 'markdown-it';
-import { loadBlogsFromDirectory } from "./content";
+import { loadPostsFromDirectory } from "./content";
 
 export default async function generateRSS() {
 
-    const blogs = loadBlogsFromDirectory();
+    const posts = loadPostsFromDirectory();
     const siteURL = process.env.VERCEL_URL;
     const date = new Date();
     const author = {
@@ -23,24 +23,23 @@ export default async function generateRSS() {
       favicon: `${siteURL}/avatar.jpg`,
       copyright: `All rights reserved ${date.getFullYear()}, jessejes`,
       updated: date,
-      generator: "Feed for Node.js",
       feedLinks: {
         rss2: `${siteURL}/rss/feed.xml`,
       },
       author,
     });
 
-    blogs.forEach((blog) => {
-      const url = `${siteURL}/blog/${blog.slug}`;
+    posts.forEach((post) => {
+      const url = `${siteURL}/posts/${post.slug}`;
       feed.addItem({
-        title: blog.title,
+        title: post.title,
         id: url,
         link: url,
-        description: blog.description,
-        content: md().render(blog.content),
+        description: post.description,
+        content: md().render(post.content),
         author: [author],
         contributor: [author],
-        date: new Date(blog.date),
+        date: new Date(post.date),
       });
     });
   

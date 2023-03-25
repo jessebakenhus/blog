@@ -1,4 +1,4 @@
-export default interface Blog {
+export default interface Post {
     slug: string,
     title: string,
     description: string,

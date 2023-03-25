@@ -1,18 +1,18 @@
 import fs, { read } from 'fs';
 import matter from 'gray-matter';
-import Blog from "@/types/blog";
+import Post from "@/types/post";
 import MarkdownContent from '@/types/markdown-content';
 
-const contentPath = "src/content"
+const contentPath = "content/posts"
 
-function loadBlogsFromDirectory(): Blog[] {
+function loadPostsFromDirectory(): Post[] {
 
-    const files = fs.readdirSync(`${contentPath}/blogs`);
+    const files = fs.readdirSync(contentPath);
 
     return files.map((fileName) => {
 
         const slug = fileName.replace(".md", "")
-        const file = fs.readFileSync(`${contentPath}/blogs/${fileName}`, 'utf-8');
+        const file = fs.readFileSync(`${contentPath}/${fileName}`, 'utf-8');
         const readMatter = matter(file);
 
         return { 
@@ -26,11 +26,11 @@ function loadBlogsFromDirectory(): Blog[] {
     })
 }
 
-function loadSpecificBlog(slug: string) {
+function loadSpecificPost(slug: string) {
 
-    console.log(`${contentPath}/blogs/${slug}.md`)
+    console.log(`${contentPath}/${slug}.md`)
 
-    const file = fs.readFileSync(`${contentPath}/blogs/${slug}.md`, 'utf-8');
+    const file = fs.readFileSync(`${contentPath}/${slug}.md`, 'utf-8');
     const readMatter = matter(file);
 
     return { slug: slug, title: readMatter.data["title"], content: readMatter.content };
@@ -44,4 +44,4 @@ function loadContentFromMarkdown(path: string, slug: string): MarkdownContent {
     return { slug: slug, title: readMatter.data["title"], content: readMatter.content  }
 }
 
-export { loadSpecificBlog, loadBlogsFromDirectory, loadContentFromMarkdown }
+export { loadSpecificPost, loadPostsFromDirectory, loadContentFromMarkdown }

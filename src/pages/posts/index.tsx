@@ -1,13 +1,13 @@
 import Card from '@/components/card';
-import Blog from '@/types/blog';
-import { loadBlogsFromDirectory } from '@/utils/content';
+import Post from '@/types/post';
+import { loadPostsFromDirectory } from '@/utils/content';
 import generateRSS from '@/utils/rss';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Rss } from "react-feather"
 
-export interface BlogsProps {
-    blogs: Blog[]
+export interface PostsProps {
+    posts: Post[]
 }
 
 export async function getStaticProps() {
@@ -16,17 +16,17 @@ export async function getStaticProps() {
 
     return {
       props: {
-            blogs: loadBlogsFromDirectory()
+            posts: loadPostsFromDirectory()
         }
     };
 }
 
-export default function Blogs(props: BlogsProps) {
+export default function Posts(props: PostsProps) {
 
     return (
         <>
             <Head>
-                <title>Blogs</title>
+                <title>Blog</title>
                 <link rel="icon" href="/avatar.jpg" />
             </Head>
             <div className="flex flex-col gap-4 mx-6">
@@ -35,19 +35,19 @@ export default function Blogs(props: BlogsProps) {
                         <Link className="text-xl text-white" href="/">Home</Link>
                     </nav>
                     <div className="flex items-center gap-2">
-                        <h1 className="font-bold text-4xl">Blogs</h1>
+                        <h1 className="font-bold text-4xl">Blog</h1>
                         <Link href="/rss/feed.xml">
                             <Rss />
                         </Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-4 py-3">
-                    {props.blogs.map((blog) => (
-                        <Link key={blog.slug} href={`blogs/${blog.slug}`}>
+                    {props.posts.map((post) => (
+                        <Link key={post.slug} href={`posts/${post.slug}`}>
                             <Card
-                                header={blog.title}
-                                description={blog.description}
-                                footer={`${blog.date} · ${blog.readingTime} min`}
+                                header={post.title}
+                                description={post.description}
+                                footer={`${post.date} · ${post.readingTime} min`}
                             />
                         </Link>
                     ))}
