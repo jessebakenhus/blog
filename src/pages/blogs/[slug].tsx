@@ -35,13 +35,8 @@ export default function BlogPage(props: BlogPageProps) {
                 <link rel="icon" href="/avatar.jpg" />
             </Head>
             <div className="flex flex-col flex-grow justify-start items-start px-6 gap-1">
-                <nav className="inline-flex">
-                    <Link className="text-xl text-white" href="/">Home</Link>
-                    <div className="text-xl text-white px-1">»</div>
-                    <Link className="text-xl text-white" href="/blogs">Blogs</Link>
-                </nav>
                 <div className="flex flex-col">
-                    <h1 className="font-bold text-3xl">{props.blog.title}</h1>
+                    <h1 className="font-bold text-3xl pb-4">{props.blog.title}</h1>
                     <div className="flex">
                         {convertMarkdownToHTML(props.blog.content)}
                     </div>
