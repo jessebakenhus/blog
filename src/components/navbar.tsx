@@ -11,8 +11,8 @@ export default function Navbar() {
                <NavbarItem title="Home"
                     href="/"
                     currentPage={router.pathname} />
-               <NavbarItem title="Blogs"
-                    href="/blogs"
+               <NavbarItem title="Blog"
+                    href="/posts"
                     currentPage={router.pathname} />
             </div>
         </nav>

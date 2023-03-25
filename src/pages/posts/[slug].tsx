@@ -1,19 +1,17 @@
-import Blog from "@/types/blog";
-import { loadBlogsFromDirectory, loadSpecificBlog } from "@/utils/content";
+import Post from "@/types/post";
+import { loadPostsFromDirectory, loadSpecificPost } from "@/utils/content";
 import { convertMarkdownToHTML } from "@/utils/markdown";
-import md from 'markdown-it';
 import Head from "next/head";
-import Link from "next/link";
 
 
-interface BlogPageProps {
-    blog: Blog;
+interface PostPageProps {
+    post: Post;
 }
 
 export async function getStaticPaths() {
 
     return {
-        paths: loadBlogsFromDirectory().map(blog => "/blogs/" + blog.slug.replace(".md", "")),
+        paths: loadPostsFromDirectory().map(post => "/posts/" + post.slug.replace(".md", "")),
         fallback: false
     }
 }
@@ -21,24 +19,24 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug }}) {
     return {
         props: {
-            blog: loadSpecificBlog(slug)
+            post: loadSpecificPost(slug)
         }
     }
 }
 
-export default function BlogPage(props: BlogPageProps) {
+export default function PostPage(props: PostPageProps) {
 
     return (
         <>
             <Head>
-                <title>{props.blog.title}</title>
+                <title>{props.post.title}</title>
                 <link rel="icon" href="/avatar.jpg" />
             </Head>
             <div className="flex flex-col flex-grow justify-start items-start px-6 gap-1">
                 <div className="flex flex-col">
-                    <h1 className="font-bold text-3xl pb-4">{props.blog.title}</h1>
+                    <h1 className="font-bold text-3xl pb-4">{props.post.title}</h1>
                     <div className="flex">
-                        {convertMarkdownToHTML(props.blog.content)}
+                        {convertMarkdownToHTML(props.post.content)}
                     </div>
                 </div>
             </div>

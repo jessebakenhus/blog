@@ -1,11 +1,11 @@
 import fs, { read } from 'fs';
 import matter from 'gray-matter';
-import Blog from "@/types/blog";
+import Post from "@/types/post";
 import MarkdownContent from '@/types/markdown-content';
 
 const contentPath = "content/posts"
 
-function loadBlogsFromDirectory(): Blog[] {
+function loadPostsFromDirectory(): Post[] {
 
     const files = fs.readdirSync(contentPath);
 
@@ -26,7 +26,7 @@ function loadBlogsFromDirectory(): Blog[] {
     })
 }
 
-function loadSpecificBlog(slug: string) {
+function loadSpecificPost(slug: string) {
 
     console.log(`${contentPath}/${slug}.md`)
 
@@ -44,4 +44,4 @@ function loadContentFromMarkdown(path: string, slug: string): MarkdownContent {
     return { slug: slug, title: readMatter.data["title"], content: readMatter.content  }
 }
 
-export { loadSpecificBlog, loadBlogsFromDirectory, loadContentFromMarkdown }
+export { loadSpecificPost, loadPostsFromDirectory, loadContentFromMarkdown }
