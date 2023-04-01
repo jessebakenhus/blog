@@ -14,7 +14,7 @@ export default function Home() {
       <div className="flex flex-col flex-grow justify-center items-center gap-6 max-w-xs">
         <div className="flex flex-col">
           <p className="text-base">jesse</p>
-          <h1 className="text-4xl font-medium">make the dreams into reality</h1>
+          <h1 className="text-4xl font-medium">turn your dream into a reality</h1>
         </div>
       </div>
     </>
